@@ -1,0 +1,15 @@
+info:
+  name: Remove task
+  type: http
+  seq: 4
+
+http:
+  method: DELETE
+  url: http://localhost:3333/tasks/dd90cf90-a3f3-4dbf-af12-66e666ac9012
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5
+​

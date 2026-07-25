@@ -1,0 +1,23 @@
+info:
+  name: Update task
+  type: http
+  seq: 2
+
+http:
+  method: PUT
+  url: http://localhost:3333/tasks/8b161cff-5485-4a06-aaa3-5cde44d34es
+  headers:
+    - name: Content-Type
+      value: application/json
+  body:
+    type: json
+    data: |-
+      {
+      	"is_done": false
+      }
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5
