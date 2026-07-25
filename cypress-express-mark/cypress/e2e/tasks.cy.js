@@ -17,6 +17,13 @@ describe("tarefas", () => {
     );
 
     // cy.get('//button[contains(text(), "Create")]').click()
-    cy.contains("button", "Create").click();
+    cy.contains("button", "Create").click()
+
+    // cy.get('main div p')
+    //   .should('be.visible')
+    //   .should('have.text', 'Ler um livro de JavaScript')
+
+    cy.contains('main div p', 'Ler um livro de JavaScript')
+      .should('be.visible')
   });
 });
