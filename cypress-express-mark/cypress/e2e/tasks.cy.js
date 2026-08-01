@@ -35,7 +35,7 @@ describe("tarefas", () => {
   })
 
   context('atualização', ()=> {
-    it.only('deve concluir uma tarefa', ()=> {
+    it('deve concluir uma tarefa', ()=> {
       const task = {
         name: 'Pagar contas de consumo',
         is_done: false
@@ -44,7 +44,7 @@ describe("tarefas", () => {
       cy.removeTaskByName(task.name)
       cy.postTask(task)
 
-      cy.visit('http://localhost:3000')
+      cy.visit('/')
 
       cy.contains('p', task.name)
         .parent()
@@ -53,6 +53,28 @@ describe("tarefas", () => {
 
       cy.contains('p', task.name)
         .should('have.css', 'text-decoration-line', 'line-through')
+    })
+  })
+
+  context('exclução', ()=> {
+    it('deve remover uma tarefa', ()=> {
+      const task = {
+        name: 'Estudar Javascript',
+        is_done: false
+      }  
+
+      cy.removeTaskByName(task.name)
+      cy.postTask(task)
+
+      cy.visit('/')
+
+      cy.contains('p', task.name)
+        .parent()
+        .find('button[class*=ItemDelete]')
+        .click()
+
+      cy.contains('p', task.name)
+        .should('not.exist')
     })
   })
 })
